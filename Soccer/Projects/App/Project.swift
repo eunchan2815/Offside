@@ -6,7 +6,9 @@ let project = Project.makeModule(
     product: .app,
     dependencies: [
         .Moya,
-        .Alamofire
+        .Alamofire,
+        .Kingfisher,
+        .Shimmer
     ],
     resources: ["Resources/**"],
     infoPlist: .file(path: "Support/info.plist")

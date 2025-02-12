@@ -11,7 +11,6 @@ import SwiftUI
 struct ManygoalView: View {
     var body: some View {
         VStack {
-            BlackRectangle()
             ScrollView {
                 Text("득점왕 TOP 10")
                     .font(.bold(20))

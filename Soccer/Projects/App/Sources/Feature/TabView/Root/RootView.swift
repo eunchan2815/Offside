@@ -16,13 +16,14 @@ struct RootView: View {
                 switch selection {
                 case .match:
                     MatchdayView()
-                        .padding(.top, 40)
+//                        .padding(.top, 40)
                 case .standing:
-                    StandingView()
+                    LeagueInfoView()
                 case .manygoals:
                     ManygoalView()
                 }
             }
+            .padding(.top)
         }
     }
 }

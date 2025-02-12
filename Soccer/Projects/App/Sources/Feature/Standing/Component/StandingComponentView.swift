@@ -13,49 +13,61 @@ struct StandingComponentView: View {
     let leagueName: String
     let leagueInfo: Table
     
+    init(leagueName: String, leagueInfo: Table) {
+        self.leagueName = leagueName
+        self.leagueInfo = leagueInfo
+    }
+    
     var body: some View {
-        RoundedRectangle(cornerRadius: 5)
-            .frame(width: 360, height: 48)
-            .foregroundStyle(.white)
-            .overlay {
-                HStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .fill(getQualificationType(position: leagueInfo.position, leagueName).color)
-                        .frame(width: 5, height: 48)
-                        .padding(.trailing, 10)
-                    
-                    Text("\(leagueInfo.position)")
-                        .font(.bold(14))
-                        .padding(.trailing, 12)
-                    
-                    let url = URL(string: leagueInfo.team.crest)!
-                    KFImage(url)
-                        .placeholder {
-                            Rectangle()
-                                .foregroundStyle(.gray)
-                                .frame(width: 35, height: 35)
-                                .redacted(reason: .placeholder)
-                                .shimmering(gradient: Gradient(colors: [.gray, .clear]))
+        NavigationLink {
+            TeamInfoView(teamId: leagueInfo.team.id)
+        } label: {
+            RoundedRectangle(cornerRadius: 5)
+                .frame(width: 360, height: 48)
+                .foregroundStyle(.white)
+                .overlay {
+                    HStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(getQualificationType(position: leagueInfo.position, leagueName).color)
+                            .frame(width: 5, height: 48)
+                            .padding(.trailing, 10)
+                        
+                        Text("\(leagueInfo.position)")
+                            .foregroundStyle(.black)
+                            .font(.bold(14))
+                            .padding(.trailing, 12)
+                        
+                        let url = URL(string: leagueInfo.team.crest)!
+                        KFImage(url)
+                            .placeholder {
+                                Rectangle()
+                                    .foregroundStyle(.gray)
+                                    .frame(width: 35, height: 35)
+                                    .redacted(reason: .placeholder)
+                                    .shimmering(gradient: Gradient(colors: [.gray, .clear]))
+                            }
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                        
+                        Text(leagueInfo.team.shortName)
+                            .foregroundStyle(.black)
+                            .font(.regular(13))
+                            .hLeading()
+                        
+                        HStack(spacing: 14) {
+                            Text("\(leagueInfo.playedGames)")
+                                .frame(width: 30)
+                            Text("\(leagueInfo.goalDifference)")
+                                .frame(width: 30)
+                            Text("\(leagueInfo.points)")
+                                .frame(width: 30)
                         }
-                        .resizable()
-                        .frame(width: 35, height: 35)
-                    
-                    Text(leagueInfo.team.shortName)
-                        .font(.regular(13))
-                        .hLeading()
-                    
-                    HStack(spacing: 14) {
-                        Text("\(leagueInfo.playedGames)")
-                            .frame(width: 30)
-                        Text("\(leagueInfo.goalDifference)")
-                            .frame(width: 30)
-                        Text("\(leagueInfo.points)")
-                            .frame(width: 30)
+                        .foregroundStyle(.black)
+                        .font(.medium(14))
+                        .padding(.leading, 10)
+                        .padding()
                     }
-                    .font(.medium(14))
-                    .padding(.leading, 10)
-                    .padding()
                 }
-            }
+        }
     }
 }

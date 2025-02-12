@@ -10,7 +10,7 @@ import SwiftUI
 struct ScrollViews: View {
     @State private var activeTab: TabModel.Tab = .lank
     @State private var mainScrollState: TabModel.Tab?
-    @State private var tabBarScrollState: TabModel.Tab?
+    @State private var tabBarScrollState: TabModel.Tab? = .lank
     @State private var progress: CGFloat = .zero
     @State private var tab: [TabModel] = [
         .init(id: TabModel.Tab.lank),
@@ -39,7 +39,7 @@ struct ScrollViews: View {
                                 RecentView()
                             case .squad:
                                 SquadView()
-                            case nil:
+                            case .none:
                                 EmptyView()
                             }
                         }

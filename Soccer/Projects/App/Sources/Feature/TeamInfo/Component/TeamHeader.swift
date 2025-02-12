@@ -17,7 +17,7 @@ struct TeamHeader: View {
         VStack {
             Rectangle()
                 .foregroundStyle(.white)
-                .frame(maxWidth: .infinity, maxHeight: 150)
+                .frame(maxWidth: .infinity, maxHeight: 100)
                 .ignoresSafeArea(edges: .top)
                 .overlay {
                     HStack {
@@ -43,7 +43,7 @@ struct TeamHeader: View {
                         .hLeading()
                     }
                     .padding()
-                    .padding(.top, 60)
+                    .padding(.top, 20)
                 }
             Rectangle()
                 .frame(maxWidth: .infinity, maxHeight: 2)

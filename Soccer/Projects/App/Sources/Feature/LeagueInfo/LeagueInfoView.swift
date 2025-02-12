@@ -16,9 +16,12 @@ struct LeagueInfoView: View {
                 ProgressView("리그정보를 가져오는 중이에요!")
             } else {
                 ScrollView {
-                    ForEach(leagueVM.leagueList, id: \.self) { league in
-                        LeagueListView(leagueInfo: league)
+                    VStack {
+                        ForEach(leagueVM.leagueList, id: \.self) { league in
+                            LeagueListView(leagueInfo: league)
+                        }
                     }
+                    .padding(.top, 4)
                     .frame(maxWidth: .infinity)
                 }
             }

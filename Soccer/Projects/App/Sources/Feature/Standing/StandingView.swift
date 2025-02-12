@@ -25,7 +25,7 @@ struct StandingView: View {
                         VStack {
                             LeaderboardView()
                             ForEach(standingVM.leagueLank, id: \.self) { team in
-                                StandingComponentView(leagueInfo: team)
+                                StandingComponentView(leagueName: league, leagueInfo: team)
                             }
                             .frame(maxWidth: .infinity)
                         }
@@ -34,6 +34,12 @@ struct StandingView: View {
                         .shadow(radius: 1)
                         .padding(.horizontal, 16)
                         .padding(.top, 4)
+                        
+                        HStack {
+                            LeagueTable(leagueName: league)
+                                .hLeading()
+                        }
+                        .padding(.leading)
                     }
                 }
                 .ignoresSafeArea(edges: .top)

@@ -10,6 +10,7 @@ import SwiftUI
 import Kingfisher
 
 struct StandingComponentView: View {
+    let leagueName: String
     let leagueInfo: Table
     
     var body: some View {
@@ -18,6 +19,11 @@ struct StandingComponentView: View {
             .foregroundStyle(.white)
             .overlay {
                 HStack {
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(getQualificationType(position: leagueInfo.position, leagueName).color)
+                        .frame(width: 5, height: 48)
+                        .padding(.trailing, 10)
+                    
                     Text("\(leagueInfo.position)")
                         .font(.bold(14))
                         .padding(.trailing, 12)
@@ -48,8 +54,8 @@ struct StandingComponentView: View {
                     }
                     .font(.medium(14))
                     .padding(.leading, 10)
+                    .padding()
                 }
-                .padding()
             }
     }
 }

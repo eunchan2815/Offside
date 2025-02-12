@@ -7,7 +7,7 @@ public extension Project {
         product: Product,
         organizationName: String = "com.eunchans",
         packages: [Package] = [],
-        deploymentTarget: DeploymentTarget? = .iOS(targetVersion: "15.0", devices: [.iphone]),
+        deploymentTarget: DeploymentTarget? = .iOS(targetVersion: "16.6", devices: [.iphone]),
         dependencies: [TargetDependency] = [],
         sources: SourceFilesList = ["Sources/**"],
         resources: ResourceFileElements? = nil,

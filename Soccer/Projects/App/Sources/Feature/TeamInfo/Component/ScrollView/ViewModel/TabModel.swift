@@ -13,7 +13,6 @@ struct TabModel: Identifiable {
     var minX: CGFloat = .zero
     
     enum Tab: String, CaseIterable {
-        case lank = "순위"
         case league = "리그"
         case web = "웹"
         case recent = "최근"

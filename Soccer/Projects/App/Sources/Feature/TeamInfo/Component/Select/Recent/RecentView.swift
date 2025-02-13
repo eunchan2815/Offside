@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct RecentView: View {
+    @EnvironmentObject var viewmodel: TeamInfoViewModel
     var body: some View {
         Text("최근뷰")
     }

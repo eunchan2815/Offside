@@ -22,7 +22,7 @@ struct TeamInfoView: View {
                     .font(.bold(20))
             } else {
                 TeamHeader(viewModel: teamInfoVM)
-                ScrollViews()
+                ScrollViews(viewmodel: teamInfoVM)
                     .ignoresSafeArea()
             }
         }

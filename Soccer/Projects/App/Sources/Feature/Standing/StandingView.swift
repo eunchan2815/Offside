@@ -48,8 +48,10 @@ struct StandingView: View {
         .BackButton()
         .onAppear {
             standingVM.getLeagueLank(league)
+            standingVM.leagueLank.removeAll()
         }
         .refreshable {
+            standingVM.leagueLank.removeAll()
             standingVM.getLeagueLank(league)
         }
     }

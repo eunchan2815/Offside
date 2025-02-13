@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ScrollViews: View {
-    @State private var activeTab: TabModel.Tab = .lank
+    @ObservedObject var viewmodel: TeamInfoViewModel
+    @State private var activeTab: TabModel.Tab = .league
     @State private var mainScrollState: TabModel.Tab?
-    @State private var tabBarScrollState: TabModel.Tab? = .lank
+    @State private var tabBarScrollState: TabModel.Tab? = .league
     @State private var progress: CGFloat = .zero
     @State private var tab: [TabModel] = [
-        .init(id: TabModel.Tab.lank),
         .init(id: TabModel.Tab.league),
         .init(id: TabModel.Tab.web),
         .init(id: TabModel.Tab.recent),
@@ -29,8 +29,6 @@ struct ScrollViews: View {
                     LazyHStack(spacing: 0) {
                         ForEach(tab) { tab in
                             switch tabBarScrollState {
-                            case .lank:
-                                LankView()
                             case .league:
                                 LeagueView()
                             case .web:
@@ -43,6 +41,7 @@ struct ScrollViews: View {
                                 EmptyView()
                             }
                         }
+                        .environmentObject(viewmodel)
                         .frame(width: size.width, height: size.height)
                         .contentShape(.rect)
                     }
@@ -119,8 +118,4 @@ struct ScrollViews: View {
         }
         .safeAreaPadding(.horizontal, 15)
     }
-}
-
-#Preview {
-    ScrollViews()
 }

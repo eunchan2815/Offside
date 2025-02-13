@@ -27,10 +27,11 @@ struct StandingComponentView: View {
                 .foregroundStyle(.white)
                 .overlay {
                     HStack {
-                        RoundedRectangle(cornerRadius: 5)
+                        Rectangle()
                             .fill(getQualificationType(position: leagueInfo.position, leagueName).color)
                             .frame(width: 5, height: 48)
                             .padding(.trailing, 10)
+                            .cornerRadius(5, corners: [.topLeft, .bottomLeft])
                         
                         Text("\(leagueInfo.position)")
                             .foregroundStyle(.black)

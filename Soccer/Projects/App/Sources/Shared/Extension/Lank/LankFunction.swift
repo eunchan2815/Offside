@@ -49,7 +49,8 @@ public func getQualificationType(position: Int, _ leagueName: String) -> Qualifi
         case 2: return .championsLeague
         case 3: return .europaLeague
         case 4: return .conferenceLeague
-        case 16...18: return .relegation
+        case 16: return .relegationPlayoff
+        case 17...18: return .relegation
         default: return .normal
         }
     default:

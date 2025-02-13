@@ -13,6 +13,7 @@ enum Iconography: String {
     case ball = "SoccerBall"
     case explain = "SubTitle"
     case background = "Background"
+    case person = "Person"
 }
 
 extension Image {

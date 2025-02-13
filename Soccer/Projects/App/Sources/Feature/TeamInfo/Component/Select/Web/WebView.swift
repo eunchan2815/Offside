@@ -9,8 +9,17 @@
 import SwiftUI
 
 struct WebView: View {
+    @EnvironmentObject var viewmodel: TeamInfoViewModel
     var body: some View {
-        Text("웹뷰")
+        VStack {
+            if let website = viewmodel.teamInfo?.website {
+                SafariWebView(siteURL: website)
+            } else {
+                Text("정보가 없어요!")
+                    .font(.bold(20))
+            };
+        }
+        .padding(.bottom, 40)
     }
 }
 

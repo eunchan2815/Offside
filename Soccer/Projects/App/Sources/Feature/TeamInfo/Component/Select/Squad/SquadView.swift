@@ -9,8 +9,34 @@
 import SwiftUI
 
 struct SquadView: View {
+    @EnvironmentObject var viewmodel: TeamInfoViewModel
     var body: some View {
-        Text("스쿼드뷰")
+        ScrollView {
+            VStack {
+                OverlayHeader(position: .coach)
+                if let coachname = viewmodel.coach {
+                    CoachView(coach: coachname)
+                }
+            }
+            .background(.white)
+            .cornerRadius(10)
+            .shadow(radius: 1)
+            .padding(.horizontal, 16)
+            
+            VStack {
+                OverlayHeader(position: .player)
+                ForEach(viewmodel.squad, id: \.self) { player in
+                    PlayerView(player: player)
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .background(.white)
+            .cornerRadius(10)
+            .shadow(radius: 1)
+            .padding(.horizontal, 16)
+            .padding(.top, 2)
+            .padding(.bottom, 25)
+        }
     }
 }
 

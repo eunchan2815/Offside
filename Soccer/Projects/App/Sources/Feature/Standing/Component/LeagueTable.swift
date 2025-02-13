@@ -26,7 +26,8 @@ struct LeagueTable: View {
         "SA": [  // 세리에A
             QualificationRule(color: .green, text: "챔피언스리그"),
             QualificationRule(color: .blue, text: "유로파리그"),
-            QualificationRule(color: .red, text: "강등")
+            QualificationRule(color: .red, text: "강등"),
+            QualificationRule(color: .skyblue, text: "컨퍼런스리그")
               ],
         "FL1": [  // 리그1
             QualificationRule(color: .green, text: "챔피언스리그"),
@@ -37,7 +38,9 @@ struct LeagueTable: View {
         "DED": [  // 에레디비시
             QualificationRule(color: .green, text: "챔피언스리그"),
             QualificationRule(color: .blue, text: "유로파리그"),
-            QualificationRule(color: .red, text: "강등")
+            QualificationRule(color: .red, text: "강등"),
+            QualificationRule(color: .skyblue, text: "컨퍼런스리그"),
+            QualificationRule(color: .orange, text: "승강 플레이오프")
                ]
     ]
     

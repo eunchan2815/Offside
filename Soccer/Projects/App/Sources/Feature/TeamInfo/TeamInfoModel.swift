@@ -23,6 +23,7 @@ struct Area: Codable, Hashable {
 struct RunningCompetition: Codable, Hashable {
     let id: Int
     let name: String
+    let code: String
     let emblem: String?
 }
 

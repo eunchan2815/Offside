@@ -20,7 +20,7 @@ struct RootView: View {
                 case .standing:
                     LeagueInfoView()
                 case .manygoals:
-                    ManygoalView()
+                    ShowingManyGoalLeague()
                 }
             }
             .padding(.top)

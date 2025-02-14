@@ -22,6 +22,7 @@ struct SquadView: View {
             .cornerRadius(10)
             .shadow(radius: 1)
             .padding(.horizontal, 16)
+            .padding(.top, 2)
             
             VStack {
                 OverlayHeader(position: .player)

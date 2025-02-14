@@ -9,18 +9,30 @@
 import SwiftUI
 
 struct ManygoalView: View {
+    @StateObject private var manyGoalVM = ManyGoalViewModel()
+    let league: String
     var body: some View {
         VStack {
-            ScrollView {
-                Text("득점왕 TOP 10")
+            if manyGoalVM.isLoading {
+                ProgressView("정보를 가져오는 중입니다.")
                     .font(.bold(20))
-                    .hLeading()
+            } else {
+                VStack {
+                    ManyGoalHeader(leagueInfo: manyGoalVM)
+                        .padding(.top, 40)
+                    ScrollView {
+                        ForEach(Array(manyGoalVM.scorer.enumerated()), id: \.element) { index, manyGoalPlayer in
+                            ManyGoalPlayer(manyGoalPlayer: manyGoalPlayer, rank: index + 1)
+                        }
+                        .padding()
+                    }
+                }
+                .ignoresSafeArea(edges: .top)
             }
-            Spacer()
+        }
+        .BackButton()
+        .onAppear {
+            manyGoalVM.fetchManyGoalData(league)
         }
     }
-}
-
-#Preview {
-    ManygoalView()
 }

@@ -17,11 +17,11 @@ struct LeaderboardView: View {
                 VStack {
                     HStack {
                         Text("#")
-                            .font(.bold(14))
+                            .font(.bold(12))
                             .padding(.trailing, 12)
                         
                         Text("팀")
-                            .font(.regular(13))
+                            .font(.regular(11))
                             .hLeading()
                         
                         HStack(spacing: 14) {
@@ -32,7 +32,7 @@ struct LeaderboardView: View {
                             Text("승점")
                                 .frame(width: 30)
                         }
-                        .font(.medium(14))
+                        .font(.medium(12))
                         .padding(.leading, 10)
                     }
                     .padding()

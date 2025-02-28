@@ -35,7 +35,7 @@ struct StandingComponentView: View {
                         
                         Text("\(leagueInfo.position)")
                             .foregroundStyle(.black)
-                            .font(.bold(14))
+                            .font(.bold(12))
                             .padding(.trailing, 12)
                         
                         let url = URL(string: leagueInfo.team.crest)!
@@ -43,16 +43,16 @@ struct StandingComponentView: View {
                             .placeholder {
                                 Rectangle()
                                     .foregroundStyle(.gray)
-                                    .frame(width: 35, height: 35)
+                                    .frame(width: 25, height: 25)
                                     .redacted(reason: .placeholder)
                                     .shimmering(gradient: Gradient(colors: [.gray, .clear]))
                             }
                             .resizable()
-                            .frame(width: 35, height: 35)
+                            .frame(width: 25, height: 25)
                         
                         Text(leagueInfo.team.shortName)
                             .foregroundStyle(.black)
-                            .font(.regular(13))
+                            .font(.regular(11))
                             .hLeading()
                         
                         HStack(spacing: 14) {
@@ -64,7 +64,7 @@ struct StandingComponentView: View {
                                 .frame(width: 30)
                         }
                         .foregroundStyle(.black)
-                        .font(.medium(14))
+                        .font(.medium(12))
                         .padding(.leading, 10)
                         .padding()
                     }
